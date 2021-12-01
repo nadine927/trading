@@ -3,6 +3,7 @@ from django.shortcuts import render
 import africastalking
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
+from .iteganya import *
 # Create your views here.
 def  welcome(request):
     return render(request, 'index.html')
@@ -91,10 +92,26 @@ def ussdApp(request):
             response += "2. Kabiri Mukwezi \n"
             response += "3. Buri gihe"
         elif text == '2*1':
+            # save the data
+            insertData(
+                category='Rimwe',
+                sessionID=session_id,
+                phoneNumber=phone_number
+            )
             response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe rimwe mukwezi"
         elif text == '2*2':
+            insertData(
+                category='Kabiri',
+                sessionID=session_id,
+                phoneNumber=phone_number
+            )
             response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe kabiri mukwezi"
         elif text == '2*3':
+            insertData(
+                category='Burigihe',
+                sessionID=session_id,
+                phoneNumber=phone_number
+            )
             response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe Buri munsi"
 
         else:
