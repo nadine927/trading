@@ -15,3 +15,13 @@ class Idafarmuser(models.Model):
 
     def __str__(self):
         return self.phoneNumber
+
+
+class Iteganyagihe(models.Model):
+    sessionId = models.CharField(max_length=255, null=True)
+    phonNumber = models.CharField(max_length=255)
+    category = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.phonNumber
+

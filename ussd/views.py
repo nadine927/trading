@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 import africastalking
 from django.views.decorators.csrf import csrf_exempt
+from .models import *
 # Create your views here.
 def  welcome(request):
     return render(request, 'index.html')
@@ -41,6 +42,21 @@ def ussdApp(request):
         elif category =='1*1' and int(len(level)) == 4 and str(level[3]) in  str(level):
             response = "CON Shyiramo nimero y'irangamuntu yuwo mufatanyije \n"
         elif category =='1*1' and int(len(level)) == 5 and str(level[4]) in  str(level):
+            # save the data into the database
+            category='Ibinyomoro'
+            sizeOfland=level[1]
+            names= level[2]
+            idnumber = level[3]
+            insert = Idafarmuser(sessiondId=session_id,
+            serviceCode = service_code,
+            phoneNumber=phone_number,
+            level=level,
+            category=category,
+            sizeOfland=sizeOfland,
+            names=names,
+            idnumber=idnumber,
+            )
+            insert.save()
             response = "END Murakoze kwiyandikisha kuri Ida farm \n"
 
 
@@ -52,6 +68,20 @@ def ussdApp(request):
         elif category =='1*2' and int(len(level)) == 4 and str(level[3]) in  str(level):
             response = "CON Shyiramo nimero y'irangamuntu yuwo mufatanyije \n"
         elif category =='1*2' and int(len(level)) == 5 and str(level[4]) in  str(level):
+            category='Indimu'
+            sizeOfland=level[1]
+            names= level[2]
+            idnumber = level[3]
+            insert = Idafarmuser(sessiondId=session_id,
+            serviceCode = service_code,
+            phoneNumber=phone_number,
+            level=level,
+            category=category,
+            sizeOfland=sizeOfland,
+            names=names,
+            idnumber=idnumber,
+            )
+            insert.save()
             response = "END Murakoze kwiyandikisha kuri Ida farm \n"
          
         #  ======================== INGENGABIHE==================
