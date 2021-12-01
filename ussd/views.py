@@ -44,9 +44,9 @@ def ussdApp(request):
         elif category =='1*1' and int(len(level)) == 5 and str(level[4]) in  str(level):
             # save the data into the database
             category='Ibinyomoro'
-            sizeOfland=level[1]
-            names= level[2]
-            idnumber = level[3]
+            sizeOfland=level[2]
+            names= level[3]
+            idnumber = level[4]
             insert = Idafarmuser(sessiondId=session_id,
             serviceCode = service_code,
             phoneNumber=phone_number,
@@ -69,9 +69,9 @@ def ussdApp(request):
             response = "CON Shyiramo nimero y'irangamuntu yuwo mufatanyije \n"
         elif category =='1*2' and int(len(level)) == 5 and str(level[4]) in  str(level):
             category='Indimu'
-            sizeOfland=level[1]
-            names= level[2]
-            idnumber = level[3]
+            sizeOfland=level[2]
+            names= level[3]
+            idnumber = level[4]
             insert = Idafarmuser(sessiondId=session_id,
             serviceCode = service_code,
             phoneNumber=phone_number,
