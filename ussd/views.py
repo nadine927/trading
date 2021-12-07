@@ -27,17 +27,18 @@ def ussdApp(request):
         response =""
         #  main menu for our application
         if text == '':
-            response =  "CON Murakaza neza kuri Idafarm \n"
-            response += "1. Kwandikisha igihingwa \n"
-            response += "2. Kumenya ingengabihe \n"
+            response =  "CON welcome to online trading \n"
+            response += "1. amazina yawe \n"
+            response += "2. telephone yawe \n"
+            response += "3. kwiyandikisha \n"
         elif text == '1':
 
-            response = "CON Hitamo igihingwa \n"
-            response += "1. Ibinyomoro \n"
-            response += "2. Indimu"
+            response = "CON ihitamo igihingwa ushaka kugura \n"
+            response += "1. shyiramo amafaranga \n"
+            response += "2. kwishyura"
         elif text == '1*1':
-            product="Ibinyomoro"
-            response = "CON shyiramo ubuso bw'ubutaka bwawe bw' "+str(product)+"\n"
+            product="Ibishyimbo"
+            response = "CON shyiramo ingano y'ibyo ushaka  y' "+str(product)+"\n"
         elif category =='1*1' and int(len(level)) == 3 and str(level[2]) in  str(level):
             response = "CON Uwo mubufatanyije \n"
         elif category =='1*1' and int(len(level)) == 4 and str(level[3]) in  str(level):
